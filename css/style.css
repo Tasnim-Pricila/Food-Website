@@ -1,9 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+
+/* universal css  */
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
+/* common css */
+body{
+    font-family: 'Dancing Script', 'cursive';
+    letter-spacing: 2px;
+}
 /* Search Form  */
 .search-form{
     display: flex;

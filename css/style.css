@@ -1,0 +1,66 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Search Form  */
+.search-form{
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+.search-text{
+    padding: 10px;
+    width: 30%;
+    border: 4px solid rgb(151, 114, 219);
+}
+
+#search-btn{
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: 2px solid transparent;
+    font-weight: 500;
+    cursor: pointer;
+    background-color: rgb(151, 114, 219);
+    color: white;
+    font-size: 20px;
+}
+
+/* Read More  */
+.fa-youtube {
+    color: rgb(121, 70, 216) ;
+}
+.modal-title{
+    color: blue;
+}
+
+/* Accordion  */
+.accordion-button:focus {  
+    box-shadow: 0 0 0 !important;
+}
+.accordion-button:not(.collapsed) {
+    box-shadow: none;
+}
+/* Categories */
+#categories{
+    cursor: pointer;
+}
+/* Error Message  */
+#error-message, #spinner{
+    display: none;
+}
+/* Filter By name  */
+.by-name{
+    color: purple;
+    text-decoration: underline;
+}
+.letter-btn{
+    background-color: white;
+    border: 2px solid rgb(146, 66, 221);
+}
+.letter-btn:hover{
+    background-color: rgb(146, 66, 221);
+    color: white;
+    transition-duration: .5s;
+}

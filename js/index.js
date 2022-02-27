@@ -10,7 +10,7 @@ const stringMessage = () => {
     errorMessage.style.display = 'block';
     errorMessage.innerText = "Enter a string";
 }
-const foodExist =  () => {
+const foodNotExist =  () => {
     document.getElementById('search-text').value = '';
     errorMessage.style.display = 'block';
     errorMessage.innerText = "Sorry !!! This Food doesn't exist";
@@ -37,7 +37,6 @@ loadByChicken();
 // Search Foods 
 
 const loadFoods = () => {
-    toggleSpinner('block');
     document.getElementById('show-food').textContent = '';
     const searchText = document.getElementById('search-text');
     const searchTextValue = searchText.value;
@@ -48,11 +47,12 @@ const loadFoods = () => {
         stringMessage();
     }    
     else{      
+        toggleSpinner('block');
         fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${searchTextValue}`)
         .then(response => response.json())
         .then(data => {
             if(data.meals === null){
-                foodExist();
+               foodNotExist();
             }
             else{
                 searchText.value = '';
@@ -61,7 +61,6 @@ const loadFoods = () => {
             toggleSpinner('none');
         });
     }
-   
 }
 
 // Display Meals -------------------------------
@@ -81,7 +80,7 @@ const showFoods = foods => {
                   <p class="card-text mt-4"> ${food.strInstructions.slice(0, 150)}... </p>
                 </div>
                 <div class="d-flex justify-content-between align-items-center">
-                  <button data-bs-toggle="modal" data-bs-target="#readMore" class="btn btn-outline-primary" onclick="loadSingleFood(${food.idMeal})"> Read More </button>
+                  <button data-bs-toggle="modal" data-bs-target="#readMore" class="btn btn-outline-primary read-more-btn" onclick="loadSingleFood(${food.idMeal})"> Read More </button>
                   <a href="${food.strYoutube}"> <i class="fa-brands fa-youtube fa-3x"></i> </a>
                 </div>
             </div>
@@ -163,7 +162,7 @@ const loadByLetter = (firstLetter) => {
     .then(response => response.json())
     .then(data =>  {
         if(data.meals === null){
-            foodExist();
+           foodNotExist();
         }
         else{
             showFoods(data.meals);
